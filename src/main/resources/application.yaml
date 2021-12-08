@@ -1,0 +1,41 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource  #修改数据源为Druid
+    druid:
+      master:
+        url: jdbc:mysql://localhost:3306/study?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: root
+      slave:
+        enable: true
+        url: jdbc:mysql://localhost:3306/study?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: root
+      initialSize: 3  #修改Druid的默认连接配置
+      minIdle: 10   # 最小连接池数量
+      maxActive: 20   # 最大连接池数量
+      maxWait: 60000   # 配置获取连接等待超时的时间
+      timeBetweenEvictionRunsMillis: 60000  # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      minEvictableIdleTimeMillis: 300000  # 配置一个连接在池中最小生存的时间，单位是毫秒
+      maxEvictableIdleTimeMillis: 900000  # 配置一个连接在池中最大生存的时间，单位是毫秒
+person:
+  name: zhangsan
+  age: 12
+  likes:
+    - book
+    - movie
+dog:
+  name: xiaohuang
+  age: 3
+  likes:
+    - play
+    - eat
+cat:
+  name: xiaohuang
+  age: 3
+  likes:
+    - play
+    - eat
